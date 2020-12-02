@@ -67,9 +67,7 @@ class Logmenu extends Component {
     } = this.props;
 
     const backdropClicked = (event) => {
-      const isBackdrop =
-        event.target.classList[0].includes("draweropen") ||
-        event.target.classList[0].includes("drawerclosed");
+      const isBackdrop = event.target.id === "logmenucontent";
       if (isBackdrop) setLogmenuOpen(false);
     };
 
