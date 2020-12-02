@@ -1,17 +1,9 @@
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-
 import Navbar from "./components/navbar/Navbar";
 import NavDrawer from "./components/navbar/NavDrawer";
-import Logmenu from "./components/logmenu/Logmenu";
-
 import { Route, Switch, withRouter } from "react-router-dom";
-import { makeStyles, withStyles, withTheme } from "@material-ui/core/styles";
-
+import { withStyles, withTheme } from "@material-ui/core/styles";
 import "./App.css";
-
-import { Component, useState } from "react";
-
+import { Component } from "react";
 import firebase from "firebase";
 
 const styles = (theme) => ({

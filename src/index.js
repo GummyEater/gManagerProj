@@ -4,13 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
-import reducers from "./redux/reducers";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import firebase from 'firebase';
-
 import { BrowserRouter as Router } from "react-router-dom";
 
 const firebaseConfig = {
@@ -27,14 +22,6 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// With server rendering, we can grab the preloaded state.
-const preloadedState = window.__PRELOADED_STATE__ || {};
-
-const store = createStore(
-  reducers,
-  preloadedState
-);
-
 const theme = createMuiTheme({
   palette: {
     type: "dark",
@@ -49,21 +36,13 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
         <CssBaseline />
         <App />
       </ThemeProvider>
-    </Provider>
   </Router>,
   document.getElementById('root')
-);  
-
-if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./redux/reducers', () => {
-    store.replaceReducer(require('./redux/reducers').default);
-  });
-}
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

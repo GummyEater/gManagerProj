@@ -1,21 +1,12 @@
-import { connect } from "react-redux";
-
 import "./Logmenu.css";
-
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import EmailIcon from "@material-ui/icons/Email";
 import PersonIcon from "@material-ui/icons/Person";
-
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-
+import { withStyles } from "@material-ui/core/styles";
 import firebase from "firebase";
-
 import { Component } from "react";
 
 const styles = (theme) => ({
@@ -83,7 +74,7 @@ class Logmenu extends Component {
     };
 
     const loginGoogle = (event) => {};
-    const loginEmail = (event) => {};
+    //const loginEmail = (event) => {};
     const loginAnon = (event) => {
       firebase
         .auth()
@@ -99,27 +90,21 @@ class Logmenu extends Component {
         variant="contained"
         className={classes.btn}
         onClick={(event) => {
-          {
-            loggedIn ? setLogmenuOpen(false) : loginEmail(event);
-          }
+          loggedIn ? setLogmenuOpen(false) : loginGoogle(event);
         }}
       >
         {loggedIn ? "Already Logged In." : "Continue with Google"}
       </Button>
     );
 
-    const emailForm = (
-        "login form"
-    )
+    const emailForm = "login form";
 
     const anonBtn = (
       <Button
         variant="contained"
         className={classes.btn}
         onClick={(event) => {
-          {
-            loggedIn ? setLogmenuOpen(false) : loginAnon(event);
-          }
+          loggedIn ? setLogmenuOpen(false) : loginAnon(event);
         }}
       >
         {loggedIn ? "Already Logged In." : "Continue Anonymously"}
@@ -129,7 +114,9 @@ class Logmenu extends Component {
     const realMenu = (
       <Paper className={classes.realmenu} id="logmenurealmenu">
         {this.state.currentLogmenuPage === 0 ? googleBtn : null}
-        {this.state.currentLogmenuPage === 1 && loggedIn ? "Already Logged In." : null}
+        {this.state.currentLogmenuPage === 1 && loggedIn
+          ? "Already Logged In."
+          : null}
         {this.state.currentLogmenuPage === 1 && !loggedIn ? emailForm : null}
         {this.state.currentLogmenuPage === 2 ? anonBtn : null}
         <BottomNavigation
