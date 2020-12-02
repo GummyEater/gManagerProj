@@ -1,0 +1,33 @@
+@media screen and (min-width: 0px) and (orientation: landscape) {
+  #logmenucontent {
+    top: 48px;
+    height: calc(100vh - 48px);
+  }
+  #logmenurealmenu {
+    left: 25%;
+    top: calc(25vh - 12px);
+    height: calc(50vh - 24px);
+  }
+}
+@media screen and (min-width: 600px) {
+  #logmenucontent {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+  #logmenurealmenu {
+    left: 25%;
+    top: calc(25vh - 16px);
+    height: calc(50vh - 32px);
+  }
+}
+@media screen and (max-width: 600px) {
+  #logmenucontent {
+    top: 56px;
+    height: calc(100vh - 56px);
+  }
+  #logmenurealmenu {
+    left: 25%;
+    top: calc(25vh - 14px);
+    height: calc(50vh - 28px);
+  }
+}
