@@ -131,7 +131,7 @@ class Logmenu extends Component {
             label="Google"
             icon={
               <svg
-                class="MuiSvgIcon-root"
+                className="MuiSvgIcon-root"
                 viewBox="0 0 24 24"
                 focusable="false"
                 aria-hidden="true"

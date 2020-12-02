@@ -32,27 +32,30 @@ const styles = (theme) => ({
 class App extends Component {
   constructor(props) {
     super(props);
-    /*
-    switch (props.location.pathname.substring(1)) {
-      case "":
-        props.setPageName("Hub");
-        break;
-      case "loadouts":
-        props.setPageName("Loadouts");
-        break;
-      case "vendors":
-        props.setPageName("Vendors");
-        break;
-      default:
-        props.setPageName("Unknown Page");
-    }
-    */
+
+    let { history, location } = this.props;
 
     this.state = {
       loggedIn: false,
       currentPage: "Hub",
       drawerOpen: false,
     };
+
+    history.listen((location, action) => {
+      switch (location.pathname.substring(1)) {
+        case "":
+          this.setState({ currentPage: "Hub" });
+          break;
+        case "loadouts":
+          this.setState({ currentPage: "Loadouts" });
+          break;
+        case "vendors":
+          this.setState({ currentPage: "Vendors" });
+          break;
+        default:
+          this.setState({ currentPage: "Unknown Page" });
+      }
+    });
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -71,6 +74,22 @@ class App extends Component {
         }
       }
     });
+  }
+
+  componentDidMount() {
+    switch (this.props.location.pathname.substring(1)) {
+      case "":
+        this.setState({ currentPage: "Hub" });
+        break;
+      case "loadouts":
+        this.setState({ currentPage: "Loadouts" });
+        break;
+      case "vendors":
+        this.setState({ currentPage: "Vendors" });
+        break;
+      default:
+        this.setState({ currentPage: "Unknown Page" });
+    }
   }
 
   render() {
@@ -108,7 +127,9 @@ class App extends Component {
           id="appcontent"
         >
           <Switch>
-            <Route path="/">{this.state.loggedIn.toString()}</Route>
+            <Route path="/">
+              {`Logged In: ${this.state.loggedIn.toString()}`}
+            </Route>
           </Switch>
         </div>
       </>
