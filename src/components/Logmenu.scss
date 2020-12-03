@@ -1,0 +1,58 @@
+.Logmenu {
+  .Backdrop {
+    position: fixed;
+    top: 56px;
+    height: calc(100vh - 56px);
+
+    @media screen and (min-width: 0px) and (orientation: landscape) {
+      top: 48px;
+      height: calc(100vh - 48px);
+    }
+    @media screen and (min-width: 600px) {
+      top: 64px;
+      height: calc(100vh - 64px);
+    }
+
+    &.drawerclosed {
+      left: 0px;
+      width: calc(100% - 0px);
+      transition: left 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
+        width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    }
+    &.draweropen {
+      left: 240px;
+      width: calc(100% - 240px);
+      transition: left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+        width 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    }
+
+    &.canclick {
+      pointer-events: all;
+    }
+    &.cantclick {
+      pointer-events: none;
+    }
+
+    .LogmenuPaper {
+      position: absolute;
+      width: 85%;
+      left: 7.5%;
+      height: 85%;
+      top: 7.5%;
+
+      .MethodBtn {
+        width: 75%;
+        height: 25%;
+        position: absolute;
+        top: 37.5%;
+        left: 12.5%;
+      }
+
+      .BottomNav {
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+      }
+    }
+  }
+}

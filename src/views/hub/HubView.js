@@ -5,7 +5,7 @@ import { Component } from "react";
 import firebase from "firebase";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import CharacterComp from "../../components/character/CharacterComp";
+import CharacterComp from "../../components/Character";
 
 const styles = (theme) => ({
   hubview: {

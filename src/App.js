@@ -1,9 +1,9 @@
-import Navbar from "./components/navbar/Navbar";
-import NavDrawer from "./components/navbar/NavDrawer";
+import Navbar from "./components/Navbar";
+import NavDrawer from "./components/NavDrawer";
 import HubView from "./views/hub/HubView";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { withStyles, withTheme } from "@material-ui/core/styles";
-import "./App.css";
+import "./App.scss";
 import { Component } from "react";
 import firebase from "firebase";
 

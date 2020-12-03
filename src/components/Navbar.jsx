@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import Logmenu from "../logmenu/Logmenu";
+import Logmenu from "./Logmenu";
 import { withStyles } from "@material-ui/core/styles";
 import firebase from "firebase";
 import { Component } from "react";

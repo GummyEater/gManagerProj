@@ -12,9 +12,11 @@ const styles = (theme) => ({
     flexGrow: 1,
   },
   upper: {
+    padding: "5px",
     height: "calc(50% - 2.5px)",
   },
   lower: {
+    padding: "5px",
     marginTop: "5px",
     height: "calc(50% - 2.5px)",
   },
@@ -23,10 +25,7 @@ const styles = (theme) => ({
 class CharacterComp extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      charTypeProper: "Unknown",
-    };
+    this.state = { charTypeProper: "Unknown" };
   }
 
   render() {
@@ -37,12 +36,17 @@ class CharacterComp extends Component {
       <div className={classes.papercharacter}>
         <Paper className={classes.upper}>
           <Typography variant="h6" component="h6" gutterBottom>
-            {charType === undefined ? "Unknown" : (charType.charAt(0).toUpperCase() + charType.slice(1))}
+            {charType === undefined
+              ? "Unknown"
+              : charType.charAt(0).toUpperCase() + charType.slice(1)}
           </Typography>
         </Paper>
         <Paper className={classes.lower}>
           <Typography variant="h6" component="h6" gutterBottom>
-          {charType === undefined ? "Unknown" : (charType.charAt(0).toUpperCase() + charType.slice(1))} Loadouts
+            {charType === undefined
+              ? "Unknown"
+              : charType.charAt(0).toUpperCase() + charType.slice(1)}{" "}
+            Loadouts
           </Typography>
         </Paper>
       </div>
