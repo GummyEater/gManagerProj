@@ -1,5 +1,5 @@
 .HubView {
-  position: fixed;
+  position: absolute;
   height: calc(100vh - 56px);
   width: 100%;
 
@@ -8,18 +8,5 @@
   }
   @media screen and (min-width: 600px) {
     height: calc(100vh - 64px);
-  }
-
-  &.drawerclosed {
-    left: 0px;
-    width: calc(100% - 0px);
-    transition: left 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
-      width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
-  }
-  &.draweropen {
-    left: 240px;
-    width: calc(100% - 240px);
-    transition: left 225ms cubic-bezier(0, 0, 0.2, 1) 0ms,
-      width 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   }
 }

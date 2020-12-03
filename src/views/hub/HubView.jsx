@@ -10,7 +10,7 @@ class HubView extends Component {
     let { drawerOpen } = this.props;
 
     return (
-      <div className={`HubView ${drawerOpen ? "draweropen" : "drawerclosed"}`}>
+      <div className={`HubView`}>
         DOOMFIST BUGS WILL BE ELIMATED
       </div>
     );
