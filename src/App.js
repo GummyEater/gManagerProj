@@ -109,17 +109,6 @@ class App extends Component {
             this.setState({ drawerOpen: newDrawerState })
           }
         />
-        <Navbar
-          currentPage={this.state.currentPage}
-          loggedIn={this.state.loggedIn}
-          drawerOpen={this.state.drawerOpen}
-          setLoggedIn={(newLogState) =>
-            this.setState({ loggedIn: newLogState })
-          }
-          setDrawerOpen={(newDrawerState) =>
-            this.setState({ drawerOpen: newDrawerState })
-          }
-        />
 
         <div
           className={
@@ -131,6 +120,17 @@ class App extends Component {
             <Route path="/" component={HubView} drawerOpen={this.state.drawerOpen} />
           </Switch>
         </div>
+        <Navbar
+          currentPage={this.state.currentPage}
+          loggedIn={this.state.loggedIn}
+          drawerOpen={this.state.drawerOpen}
+          setLoggedIn={(newLogState) =>
+            this.setState({ loggedIn: newLogState })
+          }
+          setDrawerOpen={(newDrawerState) =>
+            this.setState({ drawerOpen: newDrawerState })
+          }
+        />
       </>
     );
   }

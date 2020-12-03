@@ -110,7 +110,7 @@ class Logmenu extends Component {
     );
 
     const realMenu = (
-      <Paper className={classes.realmenu} id="logmenurealmenu">
+      <Paper className={classes.realmenu} id="logmenurealmenu" elevation={20}>
         {this.state.currentLogmenuPage === 0 ? googleBtn : null}
         {this.state.currentLogmenuPage === 1 && loggedIn
           ? "Already Logged In."
