@@ -2,7 +2,7 @@
   #hubview {
     height: calc(calc(100vh - 48px) - 20px);
   }
-  #papercharacter {
+  #papercharacters {
     top: calc(25vh - 12px);
     height: calc(50vh - 24px);
   }
@@ -11,7 +11,7 @@
   #hubview {
     height: calc(calc(100vh - 64px) - 20px);
   }
-  #papercharacter {
+  #papercharacters {
     top: calc(25vh - 16px);
     height: calc(50vh - 32px);
   }
@@ -20,7 +20,7 @@
   #hubview {
     height: calc(calc(100vh - 56px) - 20px);
   }
-  #papercharacter {
+  #papercharacters {
     top: calc(25vh - 14px);
     height: calc(50vh - 28px);
   }
