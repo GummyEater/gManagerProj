@@ -1,0 +1,29 @@
+.NavDrawer {
+  position: fixed;
+  width: 240px;
+  flex-shrink: 0px;
+
+  .Header {
+    display: flex;
+    align-items: center;
+    padding: 0px 24px;
+    justify-content: flex-start;
+    height: 56px;
+
+    @media screen and (min-width: 0px) and (orientation: landscape) {
+      height: 48px;
+    }
+    @media screen and (min-width: 600px) {
+      height: 64px;
+    }
+    
+    .ChevronBtn {
+      padding: 6px;
+      margin: 0px 2px;
+    }
+  }
+}
+
+.NavDrawerPaper {
+  width: 240px;
+}

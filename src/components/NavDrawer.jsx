@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-
+import "./NavDrawer.scss";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -14,78 +14,50 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 
-import { withStyles } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 
-import firebase from "firebase";
-import { Component } from "react";
+function NavDrawer({ drawerOpen, setDrawerOpen }) {
+  const theme = useTheme();
 
-const styles = (theme) => ({
-  drawer: {
-    position: "absolute",
-    width: 240,
-    flexShrink: "0px",
-  },
-  drawerPaper: {
-    width: 240,
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-});
-
-class NavDrawer extends Component {
-  render() {
-    const classes = this.props.classes;
-
-    let {
-      currentPage,
-      loggedIn,
-      drawerOpen,
-      setLoggedIn,
-      setDrawerOpen,
-    } = this.props;
-
-    return (
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={drawerOpen}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={() => setDrawerOpen(false)}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <ListItem button>
-            <ListItemIcon>
-              <MailIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Mail Test"} />
-          </ListItem>
-        </List>
-        <Divider />
-        <List>
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Inbox Test"} />
-          </ListItem>
-        </List>
-      </Drawer>
-    );
-  }
+  console.log(theme.mixins.toolbar);
+  return (
+    <Drawer
+      className={`NavDrawer`}
+      variant="persistent"
+      anchor="left"
+      open={drawerOpen}
+      classes={{
+        paper: "NavDrawerPaper",
+      }}
+    >
+      <div className={"Header"}>
+        <IconButton
+          onClick={() => setDrawerOpen(false)}
+          className={"ChevronBtn"}
+        >
+          <ChevronLeftIcon />
+        </IconButton>
+      </div>
+      <Divider />
+      <List>
+        <ListItem button>
+          <ListItemIcon>
+            <MailIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Mail Test"} />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Inbox Test"} />
+        </ListItem>
+      </List>
+    </Drawer>
+  );
 }
 
-export default withStyles(styles)(NavDrawer);
+export default NavDrawer;

@@ -1,38 +1,17 @@
 import Navbar from "./components/Navbar";
 import NavDrawer from "./components/NavDrawer";
-import HubView from "./views/hub/HubView";
+import HubView from "./views/hub/HubView.jsx";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { withStyles, withTheme } from "@material-ui/core/styles";
 import "./App.scss";
 import { Component } from "react";
 import firebase from "firebase";
 
-const styles = (theme) => ({
-  draweropen: {
-    position: "fixed",
-    width: "calc(100% - 240px)",
-    left: "240px",
-    transition: theme.transitions.create(["left", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerclosed: {
-    position: "fixed",
-    width: "100%",
-    left: "0px",
-    transition: theme.transitions.create(["left", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-});
-
 class App extends Component {
   constructor(props) {
     super(props);
 
-    let { history, location } = this.props;
+    let { history } = this.props;
 
     this.state = {
       loggedIn: false,
@@ -40,7 +19,7 @@ class App extends Component {
       drawerOpen: false,
     };
 
-    history.listen((location, action) => {
+    history.listen((location) => {
       switch (location.pathname.substring(1)) {
         case "":
           this.setState({ currentPage: "Hub" });
@@ -58,9 +37,6 @@ class App extends Component {
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        var uid = user.uid;
         var isAnonymous = user.isAnonymous;
 
         if (isAnonymous) {
@@ -92,30 +68,30 @@ class App extends Component {
   }
 
   render() {
-    const classes = this.props.classes;
+    const hubview = () => {
+      return <HubView drawerOpen={this.state.drawerOpen} />;
+    };
 
     return (
-      <>
+      <div className="AppPrimary">
         <NavDrawer
-          currentPage={this.state.currentPage}
-          loggedIn={this.state.loggedIn}
           drawerOpen={this.state.drawerOpen}
-          setLoggedIn={(newLogState) =>
-            this.setState({ loggedIn: newLogState })
-          }
           setDrawerOpen={(newDrawerState) =>
             this.setState({ drawerOpen: newDrawerState })
           }
         />
 
         <div
-          className={
-            this.state.drawerOpen ? classes.draweropen : classes.drawerclosed
-          }
-          id="appcontent"
+          className={`AppContent ${
+            this.state.drawerOpen ? "draweropen" : "drawerclosed"
+          }`}
         >
           <Switch>
-            <Route path="/" component={HubView} drawerOpen={this.state.drawerOpen} />
+            <Route
+              path="/"
+              component={hubview}
+              drawerOpen={this.state.drawerOpen}
+            />
           </Switch>
         </div>
         <Navbar
@@ -129,8 +105,8 @@ class App extends Component {
             this.setState({ drawerOpen: newDrawerState })
           }
         />
-      </>
+      </div>
     );
   }
 }
-export default withStyles(styles)(withRouter(App));
+export default withRouter(App);

@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import firebase from 'firebase';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App.jsx";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import firebase from "firebase";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const firebaseConfig = {
@@ -16,7 +16,7 @@ const firebaseConfig = {
   storageBucket: "guardian-item-manager.appspot.com",
   messagingSenderId: "147776144811",
   appId: "1:147776144811:web:2abc14f9fb5d65f2b17eee",
-  measurementId: "G-Q1NPYM2D3R"
+  measurementId: "G-Q1NPYM2D3R",
 };
 
 // Initialize Firebase
@@ -26,22 +26,22 @@ const theme = createMuiTheme({
   palette: {
     type: "dark",
     primary: {
-      main: '#c62828'
+      main: "#c62828",
     },
     secondary: {
-      main: '#0277bd'
+      main: "#0277bd",
     },
-  }
+  },
 });
 
 ReactDOM.render(
   <Router>
     <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </Router>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
