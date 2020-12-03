@@ -163,6 +163,7 @@ class Logmenu extends Component {
       <div
         className={drawerOpen ? classes.draweropen : classes.drawerclosed}
         id="logmenucontent"
+        style={{pointerEvents: (logmenuOpen ? "all" : "none")}}
         onClick={backdropClicked}
       >
         {logmenuOpen ? realMenu : null}
