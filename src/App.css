@@ -1,15 +1,18 @@
 @media screen and (min-width: 0px) and (orientation: landscape) {
   #appcontent {
     top: 48px;
+    height: calc(calc(100vh - 48px) - 20px);
   }
 }
 @media screen and (min-width: 600px) {
   #appcontent {
     top: 64px;
+    height: calc(100vh - 64px);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-height: 600px) {
   #appcontent {
     top: 56px;
+    height: calc(100vh - 56px);
   }
 }

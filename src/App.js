@@ -1,5 +1,6 @@
 import Navbar from "./components/navbar/Navbar";
 import NavDrawer from "./components/navbar/NavDrawer";
+import HubView from "./views/hub/HubView";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { withStyles, withTheme } from "@material-ui/core/styles";
 import "./App.css";
@@ -127,13 +128,11 @@ class App extends Component {
           id="appcontent"
         >
           <Switch>
-            <Route path="/">
-              {`Logged In: ${this.state.loggedIn.toString()}`}
-            </Route>
+            <Route path="/" component={HubView} drawerOpen={this.state.drawerOpen} />
           </Switch>
         </div>
       </>
     );
   }
 }
-export default withTheme(withStyles(styles)(withRouter(App)));
+export default withStyles(styles)(withRouter(App));

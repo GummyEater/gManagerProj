@@ -20,7 +20,7 @@
     height: calc(50vh - 32px);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-height: 600px) {
   #logmenucontent {
     top: 56px;
     height: calc(100vh - 56px);
