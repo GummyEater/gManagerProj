@@ -5,31 +5,19 @@ import { Component } from "react";
 import firebase from "firebase";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import CharacterComp from "../../components/character/CharacterComp";
 
 const styles = (theme) => ({
   hubview: {
     position: "absolute",
-    width: "calc(100% - 20px)",
+    width: "100%",
   },
   papercharacters: {
     position: "absolute",
     width: "75%",
     left: "12.5%",
     padding: "5px",
-  },
-  uppercharacters: {
-    display: "flex",
-    height: "50%",
-    padding: "5px",
-  },
-  lowercharacters: {
-    display: "flex",
-    height: "50%",
-    padding: "5px",
-  },
-  papercharacter: {
-    padding: "5px",
-    flexGrow: 1,
+    display: "flex"
   },
   characterdivider: {
     flexGrow: 0.2,
@@ -48,44 +36,11 @@ class HubView extends Component {
     return (
       <div className={classes.hubview} id="hubview">
         <Paper className={classes.papercharacters} id="papercharacters">
-          <div className={classes.uppercharacters}>
-            <Paper className={classes.papercharacter}>
-              <Typography variant="h6" component="h6" gutterBottom>
-                Warlock
-              </Typography>
-            </Paper>
-            <div className={classes.characterdivider} />
-            <Paper className={classes.papercharacter}>
-              <Typography variant="h6" component="h6" gutterBottom>
-                Titan
-              </Typography>
-            </Paper>
-            <div className={classes.characterdivider} />
-            <Paper className={classes.papercharacter}>
-              <Typography variant="h6" component="h6" gutterBottom>
-                Hunter
-              </Typography>
-            </Paper>
-          </div>
-          <div className={classes.lowercharacters}>
-            <Paper className={classes.papercharacter}>
-              <Typography variant="h6" component="h6" gutterBottom>
-                Warlock Loadouts
-              </Typography>
-            </Paper>
-            <div className={classes.characterdivider} />
-            <Paper className={classes.papercharacter}>
-              <Typography variant="h6" component="h6" gutterBottom>
-                Titan Loadouts
-              </Typography>
-            </Paper>
-            <div className={classes.characterdivider} />
-            <Paper className={classes.papercharacter}>
-              <Typography variant="h6" component="h6" gutterBottom>
-                Hunter Loadouts
-              </Typography>
-            </Paper>
-          </div>
+          <CharacterComp charType={"warlock"} />
+          <div className={classes.characterdivider} />
+          <CharacterComp charType={"titan"} />
+          <div className={classes.characterdivider} />
+          <CharacterComp charType={"hunter"} />
         </Paper>
       </div>
     );

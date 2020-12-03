@@ -30,7 +30,10 @@ const styles = (theme) => ({
   },
   realmenu: {
     position: "absolute",
-    width: "50%",
+    width: "85%",
+    left: "7.5%",
+    height: "85%",
+    top: "7.5%",
   },
   bottomnav: {
     width: "100%",

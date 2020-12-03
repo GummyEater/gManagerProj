@@ -9,7 +9,6 @@ import firebase from "firebase";
 
 const styles = (theme) => ({
   draweropen: {
-    padding: "10px",
     position: "fixed",
     width: "calc(100% - 240px)",
     left: "240px",
@@ -19,7 +18,6 @@ const styles = (theme) => ({
     }),
   },
   drawerclosed: {
-    padding: "10px",
     position: "fixed",
     width: "100%",
     left: "0px",
