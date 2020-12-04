@@ -12,13 +12,19 @@
 
   .Bugs {
     display: flex;
-
-    .BugListTitle {
-      padding-left: 16px;
-    }
-
-    .BugList {
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100%;
+    padding-top: 16px;
+    .BugDiv {
       width: auto;
+      .BugListTitle {
+        padding-left: 16px;
+      }
+
+      .BugList {
+        width: 400px;
+      }
     }
   }
 }

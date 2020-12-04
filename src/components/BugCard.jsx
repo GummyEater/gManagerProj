@@ -52,8 +52,8 @@ function BugCard({ title, topic, severity, replication, body, videos }) {
       <Collapse in={expandedCard} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Video Examples:</Typography>
-          {videos.map((videoUrl) => (
-            <a href={videoUrl} target="_blank" className={"VideoUrl"}>
+          {videos.map((videoUrl, key) => (
+            <a href={videoUrl} target="_blank" className={"VideoUrl"} key={key}>
               <Typography variant={"subtitle2"}>{videoUrl}</Typography>
             </a>
           ))}

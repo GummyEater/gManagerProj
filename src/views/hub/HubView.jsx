@@ -57,74 +57,21 @@ class HubView extends Component {
             "https://youtu.be/548oXaFWoy4",
           ],
         },
+        {
+          title: "Healing & Speed vs. Rocket Punch",
+          topic: "Rocket Punch",
+          severity: 2,
+          replication: 5,
+          body:
+            "When using his Healing Aura Lucio will be knocked back a little farther than if he is using his Speed Aura when Rocket Punched.",
+          videos: [
+            "https://gfycat.com/DifferentDetailedIndigobunting",
+            "https://youtu.be/waGA8odggy4",
+            "https://youtu.be/kenGSPHd6vE",
+          ],
+        },
       ],
     };
-  }
-
-  componentDidMount() {
-    /*
-    const makeList = (key, listTopic) => {
-      return <List key={key} className={"BugListList"}></List>;
-    };
-    const makeListItem = (
-      key,
-      title,
-      itemTopic,
-      severity,
-      replication,
-      body,
-      videos
-    ) => {
-      return (
-        <ListItem key={key}>
-          <BugCard
-            title={title}
-            topic={itemTopic}
-            severity={severity}
-            replication={replication}
-            body={body}
-            videos={videos}
-          />
-        </ListItem>
-      );
-    };
-    const setLists = () => {
-      let listIndex = 0;
-      this.state.bugTopics.forEach((listTopic) => {
-        let list = makeList(listIndex, listTopic);
-        ReactDOM.render(list, document.getElementById("BugListDiv"));
-        listIndex++;
-
-        this.state.bugs.forEach(
-          (title, itemTopic, severity, replication, body, videos) => {
-            console.log(itemTopic, listTopic);
-          }
-        );
-      });
-
-      this.state.bugs.forEach(
-        (title, topicB, severity, replication, body, videos) => {
-          console.log(topicA, topicB);
-          if (indexB == 0) {
-            returnvalue = (
-              <ListItem button key={indexB}>
-                <BugCard title={title} />
-              </ListItem>
-            );
-          } else {
-            returnvalue += (
-              <ListItem button key={indexB}>
-                <BugCard title={title} />
-              </ListItem>
-            );
-          }
-          indexB++;
-        }
-      );
-      return null;
-    };
-    setLists();
-    */
   }
 
   render() {
@@ -141,7 +88,7 @@ class HubView extends Component {
     ) => {
       if (listTopic === itemTopic) {
         return (
-          <ListItem key={itemIndex + listIndex}>
+          <ListItem>
             <BugCard
               title={title}
               topic={itemTopic}
@@ -161,7 +108,7 @@ class HubView extends Component {
       <div className={`HubView`}>
         <div className={"Bugs"}>
           {this.state.bugTopics.map((listTopic, listIndex) => (
-            <div>
+            <div className={"BugDiv"} key={listIndex}>
               <Typography
                 variant="h5"
                 color="textPrimary"
@@ -170,9 +117,9 @@ class HubView extends Component {
               >
                 {listTopic}
               </Typography>
-              <List className={"BugList"} key={listIndex}>
+              <List className={"BugList"}>
                 {this.state.bugs.map((listItem, itemIndex) => (
-                  <div>
+                  <div key={itemIndex}>
                     {Bug(
                       listItem.title,
                       listItem.topic,
