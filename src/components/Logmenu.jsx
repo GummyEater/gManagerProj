@@ -28,18 +28,18 @@ function LogmenuBtn(props) {
     return "Already Logged In.";
   } else if (currentLogmenuPage === 0) {
     return (
-      <Button variant="contained" className="MethodBtn" onClick={loginGoogle}>
-        Continue with Google
-      </Button>
-    );
-  } else if (currentLogmenuPage === 1) {
-    return "This will eventually be an email form.";
-  } else if (currentLogmenuPage === 2) {
-    return (
       <Button variant="contained" className="MethodBtn" onClick={loginAnon}>
         Continue Anonymously
       </Button>
     );
+  } else if (currentLogmenuPage === 1) {
+    return (
+      <Button variant="contained" className="MethodBtn" onClick={loginGoogle}>
+        Continue with Google
+      </Button>
+    );
+  } else if (currentLogmenuPage === 2) {
+    return "This will eventually be an email form.";
   }
 }
 
@@ -76,9 +76,9 @@ function Logmenu(props) {
               showLabels
               className="BottomNav"
             >
+              <BottomNavigationAction label="Anonymous" icon={<PersonIcon />} />
               <BottomNavigationAction label="Google" icon={<GoogleLogo />} />
               <BottomNavigationAction label="Email" icon={<EmailIcon />} />
-              <BottomNavigationAction label="Anonymous" icon={<PersonIcon />} />
             </BottomNavigation>
           </Paper>
         </div>

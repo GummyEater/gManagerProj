@@ -19,7 +19,6 @@ import { useTheme } from "@material-ui/core/styles";
 function NavDrawer({ drawerOpen, setDrawerOpen }) {
   const theme = useTheme();
 
-  console.log(theme.mixins.toolbar);
   return (
     <Drawer
       className={`NavDrawer`}

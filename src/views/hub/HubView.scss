@@ -9,4 +9,16 @@
   @media screen and (min-width: 600px) {
     height: calc(100vh - 64px);
   }
+
+  .Bugs {
+    display: flex;
+
+    .BugListTitle {
+      padding-left: 16px;
+    }
+
+    .BugList {
+      width: auto;
+    }
+  }
 }
